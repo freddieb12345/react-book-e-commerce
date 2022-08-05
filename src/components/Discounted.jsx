@@ -11,7 +11,8 @@ const Discounted = () => {
                         <h2>Discounted <b className='red'>Books</b></h2>
                     </div>
                     <div className="books">
-                        {books
+                        {books //Filters over the books data, and returns any book with a sale price, and then returns the first 8 results.
+                            .slice()
                             .filter(book => book.salePrice > 0)
                             .splice(0, 8)
                             .map(book => (

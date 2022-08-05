@@ -10,7 +10,7 @@ const Landing = () => {
                     <div className='header__description'>
                         <h1>The UK's best online library platform</h1>
                         <h2>Find your dream book with <b className='red'>Library</b></h2>
-                        <Link to="#features">
+                        <Link to="/books">
                             <button className='btn'>Browse books</button>
                         </Link>
                     </div>

@@ -12,7 +12,8 @@ const Featured = () => {
                             Featured <b className='red'>Books</b>
                         </h2>
                         <div className='books'>
-                            {books
+                            {books //filters over the books array and returns only books with a rating of 5
+                                .slice()
                                 .filter((book) => book.rating === 5)
                                 .slice(0, 4)
                                 .map((book) => (

@@ -11,24 +11,31 @@ import Cart from "./pages/Cart";
 function App() {
   const [cart, setCart] = useState([]);
 
+  //Adds the book parameter to the cart array, by using the spread array on the cart. Also adds the quantity parameter to the book,
+  //by using the spread parameter on the book object.
   function addToCart(book) {
     setCart([...cart, {...book, quantity: 1}])
   }
 
+  //maps over the cart, and checks if the item.id is equal to the book.id, and if it is, it uses the spread parameter to add the quantity parameter
+  //to the item, and then returns it
   function changeQuantity(book, quantity) {
     setCart(cart.map(item => 
       item.id === book.id 
         ? {
-            ...item, quantity: +quantity
+            ...item, quantity: +quantity //the "+" makes ure the quantity is a number and not a string
           } 
           : item
     ))
   }
-
+  
+  //filter's over the cart item, and returns an array that doesn't have the the item with the item.id
   function removeItem(item) {
     setCart(cart.filter(book => book.id !== item.id))
   }
 
+  //Function that creates the counter variable, the loops over the cart, and adds each item.quantity to the counter, thereby getting a count
+  //of how many items are in the cart
   function numberOfItems() {
     let counter = 0;
     cart.forEach(item => {
@@ -40,30 +47,6 @@ function App() {
   useEffect(() => {
     console.log(cart)
   }, [cart])
-
-  // function addToCart(book) {
-  //   const dupeItem = cart.find(item => +item.id === +book.id)
-  //   if(dupeItem){
-  //     setCart(cart.map(item => {
-  //       if (item.id === dupeItem.id) {
-  //         return {
-  //           ...item,
-  //           quantity: item.quantity + 1, 
-  //         }
-  //       }
-  //       else {
-  //         return item
-  //       }
-  //     }))
-  //   }
-  //   else {
-  //     setCart([...cart, {...book, quantity: 1}])
-  //   }
-  // }
-  
-  // useEffect(() => {
-  //   console.log(cart)
-  // }, [cart]);
 
   return (
     <Router>

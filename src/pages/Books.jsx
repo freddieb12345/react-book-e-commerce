@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Book from '../components/ui/Book';
  
 const Books = ( {books: initialBooks} ) => {
-    const [books, setBooks] = useState(initialBooks);
+    const [books, setBooks] = useState(initialBooks);  
 
+    //The slics is required in order to create another array.
     function filterBooks(filter) {
         if(filter === 'LOW_TO_HIGH') {
             setBooks(books.slice().sort((a, b) => (a.salePrice || a.originalPrice) - (b.salePrice || b.originalPrice)))

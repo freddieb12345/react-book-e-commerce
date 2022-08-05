@@ -6,13 +6,14 @@ import Price from '../components/ui/Price';
 import Book from '../components/ui/Book';
 
 const BookInfo = ({ books, addToCart, cart }) => {
-    const { id } = useParams()
-    const book = books.find(book => +book.id === +id);
+    const { id } = useParams() //This allows you to use the id that is passed in the route
+    const book = books.find(book => +book.id === +id); //Finds the book with the book.id that is in the books array
 
-    function addBookToCart(book) {
+    function addBookToCart(book) { 
         addToCart(book)
     }
 
+    //returns boolean if the book.id is equal to the id in the url
     function bookExistsOnCart() {
         return cart.find(book => book.id === +id)
     }

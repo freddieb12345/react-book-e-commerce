@@ -3,7 +3,8 @@ import EmptyCart from '../assets/empty_cart.svg'
 import { Link } from 'react-router-dom'
 
 const Cart = ({ cart, changeQuantity, removeItem }) => {
-    const total = () => {
+  //Loops over each item in the cart, and adds (item.quantiy multiplied by the salePrice or the originalPrice)  
+  const total = () => {
         let price = 0;
         cart.forEach(item => {
             price += +(item.quantity * (item.salePrice || item.originalPrice)).toFixed(2)
